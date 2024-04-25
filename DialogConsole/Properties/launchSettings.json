@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DialogConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\hzb8\\Downloads\\DialogTest\\TalkToLaura01.twee"
+    }
+  }
+}

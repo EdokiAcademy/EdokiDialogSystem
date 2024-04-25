@@ -1,0 +1,74 @@
+:: StoryTitle
+TalkToLaura01
+
+
+:: StoryData
+{
+  "ifid": "D17F2298-0CCF-4499-8BB7-D66A6F3F5B6C",
+  "format": "Harlowe",
+  "format-version": "3.3.8",
+  "start": "Start",
+  "zoom": 1
+}
+
+
+:: AskNameSlowly {"position":"675,550","size":"100,100"}
+What, is, your, name?
+[[<icon:hasName>My name is {kidName}->Welcome]]
+
+
+:: Comeback {"position":"675,400","size":"100,100"}
+Wait, Come back! 
+What's your name?
+[[<icon:hasName>My name is {kidName}->Welcome]]
+[[<icon:question>What?->AskNameSlowly]]
+
+
+:: Comeback2 {"position":"675,675","size":"100,100"}
+Come back! Would you like to learn English?
+[[<icon:yes>Yes->SeeYou]]
+[[<icon:no>No->Try]]
+
+
+:: LearnEn {"position":"550,675","size":"100,100"}
+Would you like to learn English?
+[[<icon:yes>Yes->SeeYou]]
+[[<icon:no>No->Try]]
+
+
+:: Name {"position":"550,400","size":"100,100"}
+What's your name?
+[[<icon:hasName>My name is {kidName}->Welcome]]
+[[<icon:question>What?->AskNameSlowly]]
+
+
+:: SeeYou {"position":"550,800","size":"100,100"}
+Great! See you soon!
+[[<icon:bye>See you soon->Stop]]
+[[<icon:question>What?->SeeYouSlowly]]
+
+
+:: SeeYouSlowly {"position":"675,925","size":"100,100"}
+See, you, soon!<stop>
+
+
+
+:: Start {"position":"625,275","size":"100,100"}
+Hello, my name is Laura.
+[[<icon:yes>Hello, Laura ->Name]]
+[[<icon:no>Bye ->Comeback]]
+
+
+:: Stop {"position":"550,925","size":"100,100"}
+<stop>
+
+
+:: Try {"position":"675,800","size":"100,100"}
+Let's try! It's fun!
+[[<icon:yes>OK->SeeYou]]
+
+
+:: Welcome {"position":"550,550","size":"100,100"}
+Welcome!
+[[<icon:thankyou>Thank you->LearnEn]]
+[[<icon:bye>Bye->Comeback2]]
