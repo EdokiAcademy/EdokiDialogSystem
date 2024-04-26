@@ -26,8 +26,6 @@ public class DialogEngine
     {
         renderer.RenderDialog(selected.NextNode);
         currentNode = selected.NextNode;
-        if (currentNode.IsStopNode)
-            EndDialog();
     }
 
     public void NextDialog(int selectedIndex) =>
