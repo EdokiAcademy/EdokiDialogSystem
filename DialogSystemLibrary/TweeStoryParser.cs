@@ -19,7 +19,7 @@ public class TweeStoryParser: IStoryParser
         string storyTitle = matchStoryTitle[0].Groups[1].Value;
 
 
-        Regex regexNode = new Regex(@"^::.*(?:\r?\n(?!\r?\n)|.)*(?:\]\]|>)$", RegexOptions.Multiline);
+        Regex regexNode = new Regex(@"^::\s.*position.*(?:\n(?!\n).*)*(?:\n\n|$)", RegexOptions.Multiline);
         MatchCollection matcheNodes = regexNode.Matches(tweeFile);
 
         List<DialogNode> dialogs = new List<DialogNode>();
@@ -51,13 +51,15 @@ public class TweeStoryParser: IStoryParser
                 options.Add(new DialogOption(icon, optionContent, nextTitle));
             }
 
-            dialogs.Add(new DialogNode(title, content, content.Contains(IStoryParser.STOP_STR), options));
+            dialogs.Add(new DialogNode(title, content, options));
         }
 
         //Init option next node
         foreach (DialogNode dialogNode in dialogs)
             foreach (DialogOption option in dialogNode.Options)
                 option.InitNextNode(dialogs);
+
+        var f1 = dialogs.Where(d => d.Options.Count > 0);
 
         Story story = new Story(storyTitle, dialogs);
         return story;

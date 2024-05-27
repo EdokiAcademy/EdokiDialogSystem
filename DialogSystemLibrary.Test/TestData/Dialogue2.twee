@@ -1,0 +1,140 @@
+:: StoryTitle
+Dialogue2
+
+
+:: StoryData
+{
+  "ifid": "335FF981-AEC5-4777-B934-DB37351517A2",
+  "format": "Harlowe",
+  "format-version": "3.3.8",
+  "start": "Start",
+  "zoom": 1
+}
+
+
+:: ISeeCat {"position":"800,500","size":"100,100"}
+I see a cat behind the bed. Can you find it?
+[[<icon:icon_YesCat>Yes, here is the cat->YesBed]]
+[[<icon:icon_NoCat>This one?->NoBed]]
+
+
+:: NiceMeetU {"position":"800,375","size":"100,100"}
+Nice to meet you
+[[<icon:icon_NiceMeetU2>Nice to meet you too->ISeeCat]] 
+
+
+:: NiceMeetU2 {"position":"925,375","size":"100,100"}
+Nice to meet you too
+[[<icon:icon_ThankYou>Thank You->WhatsName]]
+
+
+:: NoBed {"position":"925,625","size":"100,100"}
+No, sorry. I see a cat behind the bed
+[[<icon:icon_YesCat2>This is the cat->YesBed]]
+
+
+:: NoMeow {"position":"925,1250","size":"100,100"}
+No. You know? I have a cat, it's name is Maui and it goes {meow}. 
+[[<icon:icon_Lovely>Lovely!->SoundWoof]]
+
+
+:: NoOink {"position":"925,1750","size":"100,100"}
+No. Actually, the pig makes the sound {oink}. 
+[[<icon:icon_Ok>Ok->WellSynt]]
+
+
+
+:: NoRug {"position":"925,1000","size":"100,100"}
+No, sorry. Look for the pig on the rug
+[[<icon:icon_YesPig2>This is the pig on the rug->YesRug]]
+
+
+:: NoSofa {"position":"925,750","size":"100,100"}
+No, sorry. I'm looking for the dog under the sofa
+[[<icon:icon_YesDog2>This is the dog under the sofa->ThatOne]]
+
+
+:: NoWoof {"position":"925,1500","size":"100,100"}
+No The dog goes {woof}.
+[[<icon:icon_Ok>Ok->SoundOink]]
+
+
+:: PigRug {"position":"800,875","size":"100,100"}
+And now, can you show me the pig on the rug?
+[[<icon:icon_YesPig>This is the pig->YesRug]]
+[[<icon:icon_NoPig>Is this the pig?->NoRug]]
+
+
+:: SoundMeow {"position":"850,1125","size":"100,100"}
+Do you know what animal makes this sound {meow}?
+[[<icon:icon_ACat>A cat->YesMeow]]
+[[<icon:icon_ACat>A dog->NoMeow]]
+
+
+:: SoundOink {"position":"850,1625","size":"100,100"}
+Do you know what animal makes the sound {oink}?
+[[<icon:icon_APig>A pig->YesOink]]
+[[<icon:icon_ACat>A cat->NoOink]]
+
+
+:: SoundWoof {"position":"850,1375","size":"100,100"}
+Do you know what animal makes the sound {woof}?
+[[<icon:icon_APig>A pig->NoWoof]]
+[[<icon:icon_ADog>A dog->YesWoof]]
+
+
+:: Start {"position":"850,250","size":"100,100"}
+Hi, I'm Leo
+[[<icon:icon_hi>Hi, I'm {kidName}->NiceMeetU]]
+[[<icon:icon_bye>Nice to meet you Leo->NiceMeetU2]]
+
+
+:: Stop {"position":"850,2000","size":"100,100"}
+<stop>
+
+
+:: ThatOne {"position":"925,875","size":"100,100"}
+That's the one!
+[[<icon:icon_great>Yay!->PigRug]]
+
+
+:: WellSynt {"position":"850,1875","size":"100,100"}
+Well, that was fun! See you next time!
+[[<icon:icon_Seeyou>See you soon->Stop]]
+
+
+:: WhatsName {"position":"925,500","size":"100,100"}
+What's your name?
+[[<icon:icon_MyNameIs>My name is {kidName}->ISeeCat]]
+
+
+:: YesBed {"position":"800,625","size":"100,100"}
+Yes! Well done! And the dog under the sofa? 
+[[<icon:icon_YesDog>Here is the dog->YesSofa]]
+[[<icon:icon_NoDog>Is it this one?->NoSofa]]
+
+
+:: YesMeow {"position":"800,1250","size":"100,100"}
+Yes! I have a cat, it's name is Maui and it goes {meow}
+[[<icon:icon_Lovely>Lovely!->SoundWoof]]
+
+
+:: YesOink {"position":"800,1750","size":"100,100"}
+Yes! I love pigs! A pig makes the sound {oink}.
+[[<icon:icon_Pig>A pig->WellSynt]]
+
+
+
+:: YesRug {"position":"800,1000","size":"100,100"}
+Yes! That's the pig on the rug. Awesome!
+[[<icon:icon_ThanksLeo>Thank you Leo!->SoundMeow]]
+
+
+:: YesSofa {"position":"800,750","size":"100,100"}
+You found the dog under the sofa. You are good!
+[[<icon:icon_ThankYou>Thank you!->PigRug]]
+
+
+:: YesWoof {"position":"800,1500","size":"100,100"}
+Yes! Dogs are fun! A dog makes the sound {woof}. 
+[[<icon:icon_Yay>Yay!->SoundOink]]

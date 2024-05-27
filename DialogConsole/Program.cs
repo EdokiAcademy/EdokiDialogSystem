@@ -21,11 +21,15 @@ internal class Program
             Console.WriteLine("Error reading file: " + ex.Message);
         }
 
-        Story story = Path.GetExtension(args[0]) switch
-        {
-            ".twee" => new TweeStoryParser().ParseStory(fileContent),
-        };
+        fileContent = fileContent.Replace("\r\n", "\n");
 
+        Regex regexNode = new Regex(@"^::\s.*position.*(?:\n(?!\n).*)*(?:\n\n|$)", RegexOptions.Multiline);
+        MatchCollection matcheNodes = regexNode.Matches(fileContent);
+
+        Console.WriteLine(matcheNodes.Count);
+
+        /*
+        Story story = new TweeStoryParser().ParseStory(fileContent);
         DialogRenderer renderer = new DialogRenderer();
         DialogEngine engine = new DialogEngine(story, renderer);
 
@@ -38,6 +42,7 @@ internal class Program
         } while (!engine.IsEnd);
 
         engine.EndDialog();
+        */
     }
 
     private static void Iterate(DialogEngine engine, DialogRenderer renderer)

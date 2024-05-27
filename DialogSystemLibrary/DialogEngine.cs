@@ -24,8 +24,8 @@ public class DialogEngine
 
     public void NextDialog(DialogOption selected)
     {
-        renderer.RenderDialog(selected.NextNode);
         currentNode = selected.NextNode;
+        renderer.RenderDialog(selected.NextNode);
     }
 
     public void NextDialog(int selectedIndex) =>
